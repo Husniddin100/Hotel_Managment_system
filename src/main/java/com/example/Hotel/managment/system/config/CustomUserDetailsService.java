@@ -2,7 +2,9 @@ package com.example.Hotel.managment.system.config;
 
 
 
+import com.example.Hotel.managment.system.entity.ProfileEntity;
 import com.example.Hotel.managment.system.exp.AppBadException;
+import com.example.Hotel.managment.system.repository.ProfileRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

@@ -1,6 +1,7 @@
 package com.example.Hotel.managment.system.dto;
 
 
+import com.example.Hotel.managment.system.enums.ProfileRole;
 import lombok.Data;
 
 @Data

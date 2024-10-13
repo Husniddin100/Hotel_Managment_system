@@ -1,9 +1,8 @@
 package com.example.Hotel.managment.system.config;
 
 
-import com.example.library.dto.JwtDTO;
-import com.example.library.util.JWTUtil;
-import io.jsonwebtoken.JwtException;
+import com.example.Hotel.managment.system.dto.JwtDTO;
+import com.example.Hotel.managment.system.util.JWTUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -21,7 +20,6 @@ import org.springframework.web.filter.OncePerRequestFilter;
 import java.io.IOException;
 import java.util.Arrays;
 
-
 @Component
 public class JwtTokenFilter extends OncePerRequestFilter {
     @Autowired
@@ -33,6 +31,11 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         return Arrays
                 .stream(SpringSecurityConfig.AUTH_WHITELIST)
                 .anyMatch(p -> pathMatcher.match(p, request.getServletPath()));
+    }
+
+    @Override
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+
     }
 
     @Override

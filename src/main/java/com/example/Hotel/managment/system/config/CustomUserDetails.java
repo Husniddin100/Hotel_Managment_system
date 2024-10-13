@@ -3,6 +3,8 @@ package com.example.Hotel.managment.system.config;
 
 
 
+import com.example.Hotel.managment.system.enums.ProfileRole;
+import com.example.Hotel.managment.system.enums.ProfileStatus;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;

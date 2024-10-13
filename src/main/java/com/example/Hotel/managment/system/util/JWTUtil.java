@@ -2,9 +2,8 @@ package com.example.Hotel.managment.system.util;
 
 
 import com.example.Hotel.managment.system.dto.JwtDTO;
+import com.example.Hotel.managment.system.enums.ProfileRole;
 
-import javax.crypto.spec.SecretKeySpec;
-import java.util.Date;
 
 public class JWTUtil {
     private static final int tokenLiveTime = 1000 * 3600 * 24; // 1-day

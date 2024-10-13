@@ -1,5 +1,6 @@
 package com.example.Hotel.managment.system.config;
 
+import com.example.Hotel.managment.system.util.MDUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -52,10 +53,6 @@ public class SpringSecurityConfig {
                     .requestMatchers("/auth/verification/email/**").permitAll()
                     .requestMatchers("auth/verification/email/").permitAll()
                     .requestMatchers("auth/login").permitAll()
-                    .requestMatchers("book/get-all").permitAll()
-                    .requestMatchers("profile-book/profile-book-list-by-id/").permitAll()
-                    .requestMatchers("profile-book/get-profile-books/*").permitAll()
-                    .requestMatchers("profile-book/profile/**").permitAll()
                     .anyRequest()
                     .authenticated();
         });
