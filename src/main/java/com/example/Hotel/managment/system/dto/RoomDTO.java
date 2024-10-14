@@ -1,13 +1,14 @@
 package com.example.Hotel.managment.system.dto;
 
+import com.example.Hotel.managment.system.enums.RoomCategory;
 import lombok.Data;
 
 
 @Data
 public class RoomDTO {
-    private Integer id;
+    private String id;
     private String number;
-    private String category;
+    private RoomCategory category;
     private Integer hotelId;
     private Double price;
 

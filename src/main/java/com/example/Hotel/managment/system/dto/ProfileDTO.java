@@ -2,8 +2,9 @@ package com.example.Hotel.managment.system.dto;
 
 import com.example.Hotel.managment.system.enums.ProfileRole;
 import com.example.Hotel.managment.system.enums.ProfileStatus;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Data;
-
+@JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 public class ProfileDTO {
     private String id;
@@ -13,4 +14,5 @@ public class ProfileDTO {
     private ProfileRole role;
     private String email;
     private String password;
+    private String jwt;
 }

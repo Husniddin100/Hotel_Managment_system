@@ -3,6 +3,7 @@ package com.example.Hotel.managment.system.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.List;
 
 
 @Data
@@ -21,5 +22,8 @@ public class HotelEntity {
 
     @Column(name = "description")
     private String description;
+
+    @OneToMany(mappedBy = "hotel")
+    private List<RoomEntity> rooms;
 
 }

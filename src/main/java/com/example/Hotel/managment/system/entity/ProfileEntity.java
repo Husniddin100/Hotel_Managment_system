@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
+import java.time.LocalDateTime;
+
 @Data
 @Entity
 @Table(name = "profile")
@@ -17,11 +19,17 @@ public class ProfileEntity {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "surname")
+    private String surname;
+
     @Column(name = "email")
     private String email;
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "created_date")
+    private LocalDateTime createdDate;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
