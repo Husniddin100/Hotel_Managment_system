@@ -12,3 +12,22 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiY
 
 #### get all rooms
 GET localhost:8080/room/get-all
+
+#### update room
+PUT localhost:8080/room/update/13b92aba-cef5-4c21-a35d-08401346ac05
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3Mjg5NzMzMzcsImlzcyI6IkhvdGVsIn0.Yaog6RbKeWHM7oqOk0BwRNjcKLlQPYEeIMZa8ozhqLnb5HX3phHILS5ZQ5Ni1Wlh3FYHtwRBRweFH9_B2nqqTg
+
+{
+  "category": "LUX",
+  "number": "2",
+  "price": 200
+}
+
+### delete room by id
+DELETE localhost:8080/room/delete/13b92aba-cef5-4c21-a35d-08401346ac05
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3Mjg5NzMzMzcsImlzcyI6IkhvdGVsIn0.Yaog6RbKeWHM7oqOk0BwRNjcKLlQPYEeIMZa8ozhqLnb5HX3phHILS5ZQ5Ni1Wlh3FYHtwRBRweFH9_B2nqqTg
+
+### get by id
+GET localhost:8080/room/get-byId/ae13730a-9a7b-445e-85d0-318c8a7f4e75
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3Mjg5NzMzMzcsImlzcyI6IkhvdGVsIn0.Yaog6RbKeWHM7oqOk0BwRNjcKLlQPYEeIMZa8ozhqLnb5HX3phHILS5ZQ5Ni1Wlh3FYHtwRBRweFH9_B2nqqTg

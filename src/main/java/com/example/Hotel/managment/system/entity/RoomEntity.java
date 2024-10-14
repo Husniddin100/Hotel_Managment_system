@@ -1,6 +1,7 @@
 package com.example.Hotel.managment.system.entity;
 
 import com.example.Hotel.managment.system.enums.RoomCategory;
+import com.example.Hotel.managment.system.enums.RoomStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
@@ -32,4 +33,8 @@ public class RoomEntity {
 
     @Column(name = "price")
     private Double price;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "room_status")
+    private RoomStatus status;
 }

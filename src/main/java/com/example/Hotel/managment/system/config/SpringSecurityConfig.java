@@ -53,6 +53,7 @@ public class SpringSecurityConfig {
                     .requestMatchers("/auth/verification/email/**").permitAll()
                     .requestMatchers("auth/verification/email/").permitAll()
                     .requestMatchers("auth/login").permitAll()
+                    .requestMatchers("room/get-all").permitAll()
                     .anyRequest()
                     .authenticated();
         });
