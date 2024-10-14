@@ -3,7 +3,6 @@ package com.example.Hotel.managment.system.service;
 import com.example.Hotel.managment.system.dto.HotelDTO;
 import com.example.Hotel.managment.system.dto.RoomDTO;
 import com.example.Hotel.managment.system.entity.HotelEntity;
-import com.example.Hotel.managment.system.entity.RoomEntity;
 import com.example.Hotel.managment.system.exp.AppBadException;
 import com.example.Hotel.managment.system.repository.HotelRepository;
 import lombok.RequiredArgsConstructor;
@@ -12,12 +11,14 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @RequiredArgsConstructor
 @Service
 public class HotelService {
     private final HotelRepository hotelRepository;
+    private final RoomService roomService;
 
     public HotelDTO createHotel(HotelDTO dto) {
         HotelEntity entity = new HotelEntity();
@@ -82,6 +83,11 @@ public class HotelService {
         dto.setName(entity.getName());
         dto.setAddress(entity.getAddress());
         dto.setDescription(entity.getDescription());
+
+        List<RoomDTO> roomDTOList = entity.getRooms().stream()
+                .map(roomService::toDTO)
+                .collect(Collectors.toList());
+        dto.setRooms(roomDTOList);
         return dto;
     }
 }
