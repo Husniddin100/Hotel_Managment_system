@@ -14,5 +14,6 @@ public class ProfileDTO {
     private ProfileRole role;
     private String email;
     private String password;
+    private Boolean visible;
     private String jwt;
 }

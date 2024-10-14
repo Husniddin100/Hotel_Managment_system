@@ -37,4 +37,7 @@ public class RoomEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "room_status")
     private RoomStatus status;
+
+    @Column(name = "visible")
+    private Boolean visible;
 }

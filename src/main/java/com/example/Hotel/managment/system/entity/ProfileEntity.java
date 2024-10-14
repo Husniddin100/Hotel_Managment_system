@@ -39,5 +39,8 @@ public class ProfileEntity {
     @Column(name = "role")
     private ProfileRole role;
 
+    @Column(name = "visible")
+    private Boolean visible;
+
 }
 

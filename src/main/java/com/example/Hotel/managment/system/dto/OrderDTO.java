@@ -8,8 +8,9 @@ import java.time.LocalDateTime;
 public class OrderDTO {
     private String id;
     private String userId;
-    private Integer roomId;
+    private String roomId;
     private LocalDateTime orderDate;
     private LocalDateTime checkInDate;
     private LocalDateTime checkOutDate;
+    private Boolean visible;
 }
