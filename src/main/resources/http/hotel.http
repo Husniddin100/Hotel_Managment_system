@@ -8,3 +8,8 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiY
   "address": "Tashkent",
   "description": "There are lux comfort rooms and 5-star rooms"
 }
+
+### get by id
+GET localhost:8080/hotel/get-byId/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3Mjg5NzMzMzcsImlzcyI6IkhvdGVsIn0.Yaog6RbKeWHM7oqOk0BwRNjcKLlQPYEeIMZa8ozhqLnb5HX3phHILS5ZQ5Ni1Wlh3FYHtwRBRweFH9_B2nqqTg
+

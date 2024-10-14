@@ -38,6 +38,4 @@ public class OrderEntity {
     @Column()
     private LocalDateTime checkOutDate;
 
-    @Column(name = "visible")
-    private Boolean visible;
 }

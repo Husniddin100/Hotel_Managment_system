@@ -38,6 +38,5 @@ public class RoomEntity {
     @Column(name = "room_status")
     private RoomStatus status;
 
-    @Column(name = "visible")
-    private Boolean visible;
+
 }

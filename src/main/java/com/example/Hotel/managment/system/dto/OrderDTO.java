@@ -12,5 +12,5 @@ public class OrderDTO {
     private LocalDateTime orderDate;
     private LocalDateTime checkInDate;
     private LocalDateTime checkOutDate;
-    private Boolean visible;
+
 }

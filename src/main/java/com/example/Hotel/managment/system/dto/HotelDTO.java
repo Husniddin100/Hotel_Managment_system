@@ -10,6 +10,5 @@ public class HotelDTO {
     private String name;
     private String address;
     private String description;
-    private Boolean visible;
     private List<RoomDTO> rooms;
 }

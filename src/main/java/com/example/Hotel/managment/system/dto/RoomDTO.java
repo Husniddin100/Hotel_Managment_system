@@ -12,7 +12,6 @@ public class RoomDTO {
     private RoomCategory category;
     private Integer hotelId;
     private RoomStatus status;
-    private Boolean visible;
     private Double price;
 
 }

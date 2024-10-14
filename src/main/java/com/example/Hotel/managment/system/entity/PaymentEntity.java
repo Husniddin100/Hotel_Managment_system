@@ -32,6 +32,5 @@ public class PaymentEntity {
     @Column(name = "payment_date")
     private LocalDateTime paymentDate;
 
-    @Column(name = "visible")
-    private Boolean visible;
+
 }
