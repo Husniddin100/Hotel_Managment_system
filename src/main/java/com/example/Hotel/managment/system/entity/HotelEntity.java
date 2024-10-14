@@ -1,11 +1,9 @@
 package com.example.Hotel.managment.system.entity;
 
-import com.example.Hotel.managment.system.dto.RoomDTO;
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Generated;
 
-import java.util.List;
+
 
 @Data
 @Entity

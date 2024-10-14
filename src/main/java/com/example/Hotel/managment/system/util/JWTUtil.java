@@ -1,9 +1,11 @@
 package com.example.Hotel.managment.system.util;
 
-
 import com.example.Hotel.managment.system.dto.JwtDTO;
 import com.example.Hotel.managment.system.enums.ProfileRole;
+import io.jsonwebtoken.*;
 
+import javax.crypto.spec.SecretKeySpec;
+import java.util.Date;
 
 public class JWTUtil {
     private static final int tokenLiveTime = 1000 * 3600 * 24; // 1-day
@@ -24,7 +26,7 @@ public class JWTUtil {
         jwtBuilder.claim("role", role);
 
         jwtBuilder.expiration(new Date(System.currentTimeMillis() + (tokenLiveTime)));
-        jwtBuilder.issuer("Library");
+        jwtBuilder.issuer("Hotel");
         return jwtBuilder.compact();
     }
 

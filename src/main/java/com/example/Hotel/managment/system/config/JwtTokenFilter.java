@@ -3,6 +3,7 @@ package com.example.Hotel.managment.system.config;
 
 import com.example.Hotel.managment.system.dto.JwtDTO;
 import com.example.Hotel.managment.system.util.JWTUtil;
+import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -31,11 +32,6 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         return Arrays
                 .stream(SpringSecurityConfig.AUTH_WHITELIST)
                 .anyMatch(p -> pathMatcher.match(p, request.getServletPath()));
-    }
-
-    @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
-
     }
 
     @Override

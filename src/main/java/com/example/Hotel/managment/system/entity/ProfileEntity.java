@@ -14,21 +14,21 @@ public class ProfileEntity {
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
 
-    @Column(nullable = false)
+    @Column(name = "name")
     private String name;
 
-    @Column(nullable = false, unique = true)
+    @Column(name = "email")
     private String email;
 
-    @Column(nullable = false)
+    @Column(name = "password")
     private String password;
 
     @Enumerated(EnumType.STRING)
-    @Column()
+    @Column(name = "status")
     private ProfileStatus status;
 
     @Enumerated(EnumType.STRING)
-    @Column()
+    @Column(name = "role")
     private ProfileRole role;
 
 }

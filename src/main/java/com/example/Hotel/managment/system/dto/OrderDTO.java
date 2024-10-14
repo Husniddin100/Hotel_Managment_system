@@ -7,8 +7,8 @@ import java.time.LocalDateTime;
 @Data
 public class OrderDTO {
     private String id;
-    private Long userId;
-    private Long roomId;
+    private String userId;
+    private Integer roomId;
     private LocalDateTime orderDate;
     private LocalDateTime checkInDate;
     private LocalDateTime checkOutDate;

@@ -1,15 +1,16 @@
 package com.example.Hotel.managment.system.dto;
 
+import com.example.Hotel.managment.system.enums.PaymentStatus;
 import lombok.Data;
 
-import java.math.BigDecimal;
+
 import java.time.LocalDateTime;
 
 @Data
 public class PaymentDTO {
     private String id;
-    private Long orderId;
-    private BigDecimal amount;
-    private String status;
+    private String orderId;
+    private Double amount;
+    private PaymentStatus status;
     private LocalDateTime paymentDate;
 }

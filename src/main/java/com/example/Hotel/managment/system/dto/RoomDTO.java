@@ -8,5 +8,7 @@ public class RoomDTO {
     private Integer id;
     private String number;
     private String category;
-    private Long hotelId;
+    private Integer hotelId;
+    private Double price;
+
 }

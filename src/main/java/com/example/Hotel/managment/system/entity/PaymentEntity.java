@@ -24,7 +24,7 @@ public class PaymentEntity {
     private OrderEntity order;
 
     @Column(name = "amount")
-    private BigDecimal amount;
+    private Double amount;
 
     @Enumerated(EnumType.STRING)
     private PaymentStatus status;

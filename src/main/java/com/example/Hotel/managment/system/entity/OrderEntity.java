@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
 
 @Data
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class OrderEntity {
     @Id
     @GeneratedValue(generator = "UUID")
@@ -20,20 +20,21 @@ public class OrderEntity {
 
     @ManyToOne
     @JoinColumn(name = "user_id", insertable = false, updatable = false)
-    private UserEntity user;
+    private ProfileEntity user;
 
     @Column(name ="room_id")
     private String roomId;
+
     @ManyToOne
-    @JoinColumn(name = "room_id", nullable = false,insertable = false,updatable = false)
+    @JoinColumn(name = "room_id",insertable = false,updatable = false)
     private RoomEntity room;
 
-    @Column(nullable = false)
+    @Column(name = "order_date")
     private LocalDateTime orderDate;
 
-    @Column(nullable = false)
+    @Column(name = "checkin_date")
     private LocalDateTime checkInDate;
 
-    @Column(nullable = false)
+    @Column()
     private LocalDateTime checkOutDate;
 }

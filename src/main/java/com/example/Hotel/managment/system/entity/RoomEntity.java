@@ -31,5 +31,5 @@ public class RoomEntity {
     private HotelEntity hotel;
 
     @Column(name = "price")
-    private BigDecimal price;
+    private Double price;
 }
