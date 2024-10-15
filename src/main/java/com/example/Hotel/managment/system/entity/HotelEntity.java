@@ -23,6 +23,9 @@ public class HotelEntity {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "visible")
+    private Boolean visible;
+
     @OneToMany(mappedBy = "hotel")
     private List<RoomEntity> rooms;
 

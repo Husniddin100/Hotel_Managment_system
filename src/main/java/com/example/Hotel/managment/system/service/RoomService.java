@@ -39,7 +39,9 @@ public class RoomService {
 
         List<RoomDTO> roomDTOS = new ArrayList<>();
         for (RoomEntity room : rooms) {
-            roomDTOS.add(toDTO(room));
+            if (room.getVisible().equals(true)){
+                roomDTOS.add(toDTO(room));
+            }
         }
         return roomDTOS;
     }
@@ -65,7 +67,7 @@ public class RoomService {
             throw new AppBadException("room not found");
         }
         log.info("delete room {}", id);
-        roomRepository.deleteById(id);
+        roomRepository.updateVisible(id);
         return true;
     }
 

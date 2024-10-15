@@ -1,4 +1,5 @@
 package com.example.Hotel.managment.system.entity;
+
 import com.example.Hotel.managment.system.enums.ProfileRole;
 import com.example.Hotel.managment.system.enums.ProfileStatus;
 import jakarta.persistence.*;
@@ -10,11 +11,8 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "profile")
-public class ProfileEntity {
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+public class ProfileEntity extends BaseEntity {
+
 
     @Column(name = "name")
     private String name;
@@ -38,8 +36,6 @@ public class ProfileEntity {
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
     private ProfileRole role;
-
-
 
 }
 

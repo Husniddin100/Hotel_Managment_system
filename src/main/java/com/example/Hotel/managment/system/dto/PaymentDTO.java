@@ -13,5 +13,6 @@ public class PaymentDTO {
     private Double amount;
     private PaymentStatus status;
     private LocalDateTime paymentDate;
+    private Boolean visible;
 
 }

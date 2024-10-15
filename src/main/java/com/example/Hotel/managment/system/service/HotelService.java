@@ -37,7 +37,9 @@ public class HotelService {
 
         List<HotelDTO> hotelDTOS = new ArrayList<>();
         for (HotelEntity hotel1 : hotel) {
-            hotelDTOS.add(toDTO(hotel1));
+            if (hotel1.getVisible().equals(true)) {
+                hotelDTOS.add(toDTO(hotel1));
+            }
         }
         return hotelDTOS;
     }
@@ -62,9 +64,9 @@ public class HotelService {
         if (!hotelRepository.existsById(id)) {
             throw new AppBadException("hotel not found");
         }
-        log.info("delete hotel {}", id);
-
-        return true;
+        log.warn("delete hotel {}", id);
+        hotelRepository.updateVisible(id);
+         return true;
     }
 
     public HotelDTO getById(Integer id) {

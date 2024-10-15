@@ -11,6 +11,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+
 @Slf4j
 @RequiredArgsConstructor
 @Component
@@ -28,6 +30,7 @@ public class AdminInitializer implements CommandLineRunner {
             entity.setPassword(MDUtil.encode("1234"));
             entity.setStatus(ProfileStatus.ACTIVE);
             entity.setRole(ProfileRole.ROLE_ADMIN);
+            entity.setCreatedDate(LocalDateTime.now());
             profileRepository.save(entity);
             log.info("admin initialized {}",entity.getName());
         } else {

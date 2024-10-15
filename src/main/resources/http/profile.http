@@ -1,0 +1,3 @@
+#### get by id
+GET localhost:8080/profile/get-byId/c5b27835-b5f2-4028-ab5f-4ef726236fb9
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg5NzQ3MzUsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkwNjExMzUsImlzcyI6IkhvdGVsIn0.QNZ2FRa5JdEVTq6h0HFMnd-WmPkqVJfKnXDdFImDSXlovRsFUEPW4vfFo4UfKBE0EpnLTPbq3JQlE-FwozfBTA

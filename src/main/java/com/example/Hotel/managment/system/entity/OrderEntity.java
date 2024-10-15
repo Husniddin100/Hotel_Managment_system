@@ -9,18 +9,15 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "orders")
-public class OrderEntity {
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+public class OrderEntity extends BaseEntity {
 
-    @Column(name = "user_id")
-    private String userId;
+
+    @Column(name = "profile_id")
+    private String profileId;
 
     @ManyToOne
-    @JoinColumn(name = "user_id", insertable = false, updatable = false)
-    private ProfileEntity user;
+    @JoinColumn(name = "profile_id", insertable = false, updatable = false)
+    private ProfileEntity profile;
 
     @Column(name ="room_id")
     private String roomId;

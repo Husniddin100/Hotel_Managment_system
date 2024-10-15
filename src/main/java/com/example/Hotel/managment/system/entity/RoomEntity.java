@@ -12,11 +12,7 @@ import java.math.BigDecimal;
 @Data
 @Entity
 @Table(name = "room")
-public class RoomEntity {
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    private String id;
+public class RoomEntity extends BaseEntity {
 
     @Column(name = "number")
     private String number;

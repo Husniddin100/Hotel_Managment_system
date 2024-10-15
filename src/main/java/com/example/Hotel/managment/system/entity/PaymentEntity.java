@@ -11,10 +11,7 @@ import java.time.LocalDateTime;
 @Data
 @Entity
 @Table(name = "payment")
-public class PaymentEntity {
-    @Id
-    @GeneratedValue(generator = "UUID")
-    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+public class PaymentEntity extends BaseEntity {
 
     @Column(name = "order_id")
     private String orderId;
