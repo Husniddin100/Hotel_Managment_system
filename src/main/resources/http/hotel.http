@@ -1,11 +1,11 @@
 ### create hotel
 POST localhost:8080/hotel/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3Mjg5NzMzMzcsImlzcyI6IkhvdGVsIn0.Yaog6RbKeWHM7oqOk0BwRNjcKLlQPYEeIMZa8ozhqLnb5HX3phHILS5ZQ5Ni1Wlh3FYHtwRBRweFH9_B2nqqTg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkwMDM5NzEsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkwOTAzNzEsImlzcyI6IkhvdGVsIn0.lMlQYs8wqzvkmb4cttQUyUrJBnibW87YPw9NrvO6vlmz8K-Z_UBAyeVJ8af3TLZLLfvg_KUqzER5vreKyzhylQ"
 
 {
-  "name": "Tashkent hotel",
-  "address": "Tashkent",
+  "name": "Samarkand hotel",
+  "address": "Samarkand",
   "description": "There are lux comfort rooms and 5-star rooms"
 }
 
@@ -15,7 +15,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiY
 
 ### get all hotel
 GET localhost:8080/hotel/get-all
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3Mjg5NzMzMzcsImlzcyI6IkhvdGVsIn0.Yaog6RbKeWHM7oqOk0BwRNjcKLlQPYEeIMZa8ozhqLnb5HX3phHILS5ZQ5Ni1Wlh3FYHtwRBRweFH9_B2nqqTg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkwMDM5NzEsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkwOTAzNzEsImlzcyI6IkhvdGVsIn0.lMlQYs8wqzvkmb4cttQUyUrJBnibW87YPw9NrvO6vlmz8K-Z_UBAyeVJ8af3TLZLLfvg_KUqzER5vreKyzhylQ"
 
 ### delete hotel
 DELETE localhost:8080/hotel/delete/1
@@ -31,4 +31,10 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiY
   "address": "Tashkent",
   "description": "There are lux comfort rooms and 5-star rooms"
 }
+
+
+### get all  pagination  by id  Desc
+GET localhost:8080/hotel/all
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkwMDM5NzEsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkwOTAzNzEsImlzcyI6IkhvdGVsIn0.lMlQYs8wqzvkmb4cttQUyUrJBnibW87YPw9NrvO6vlmz8K-Z_UBAyeVJ8af3TLZLLfvg_KUqzER5vreKyzhylQ"
+
 

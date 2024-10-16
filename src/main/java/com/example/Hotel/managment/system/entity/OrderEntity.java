@@ -2,7 +2,6 @@ package com.example.Hotel.managment.system.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDateTime;
 
@@ -10,7 +9,6 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "orders")
 public class OrderEntity extends BaseEntity {
-
 
     @Column(name = "profile_id")
     private String profileId;
@@ -32,7 +30,7 @@ public class OrderEntity extends BaseEntity {
     @Column(name = "checkin_date")
     private LocalDateTime checkInDate;
 
-    @Column()
+    @Column(name = "checkOutDate")
     private LocalDateTime checkOutDate;
 
 }

@@ -7,9 +7,11 @@ import com.example.Hotel.managment.system.exp.AppBadException;
 import com.example.Hotel.managment.system.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 @RequiredArgsConstructor
@@ -39,9 +41,7 @@ public class RoomService {
 
         List<RoomDTO> roomDTOS = new ArrayList<>();
         for (RoomEntity room : rooms) {
-            if (room.getVisible().equals(true)){
-                roomDTOS.add(toDTO(room));
-            }
+            roomDTOS.add(toDTO(room));
         }
         return roomDTOS;
     }
@@ -67,7 +67,7 @@ public class RoomService {
             throw new AppBadException("room not found");
         }
         log.info("delete room {}", id);
-        roomRepository.updateVisible(id);
+        roomRepository.deleteById(id);
         return true;
     }
 
@@ -79,6 +79,22 @@ public class RoomService {
             throw new AppBadException("room not found");
         }
         return toDTO(rooms);
+    }
+
+    public PageImpl getAllByPagination(Integer page, Integer size) {
+        Sort sort = Sort.by(Sort.Direction.DESC, "number");
+
+        Pageable paging = PageRequest.of(page - 1, size, sort);
+        Page<RoomEntity> roomPage = roomRepository.findAll(paging);
+
+        List<RoomEntity> entityList = roomPage.getContent();
+        Long totalElements = roomPage.getTotalElements();
+
+        List<RoomDTO> dtoList = new LinkedList<>();
+        for (RoomEntity entity : entityList) {
+            dtoList.add(toDTO(entity));
+        }
+        return new PageImpl<>(dtoList, paging, totalElements);
     }
 
     public RoomDTO toDTO(RoomEntity entity) {

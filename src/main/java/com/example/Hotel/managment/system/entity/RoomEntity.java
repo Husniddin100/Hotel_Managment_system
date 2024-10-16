@@ -2,12 +2,9 @@ package com.example.Hotel.managment.system.entity;
 
 import com.example.Hotel.managment.system.enums.RoomCategory;
 import com.example.Hotel.managment.system.enums.RoomStatus;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
-
-import java.math.BigDecimal;
-
 
 @Data
 @Entity

@@ -1,10 +1,10 @@
 package com.example.Hotel.managment.system.entity;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
-
 
 @Data
 @Entity
@@ -23,13 +23,7 @@ public class HotelEntity {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "visible")
-    private Boolean visible;
-
     @OneToMany(mappedBy = "hotel")
     private List<RoomEntity> rooms;
-
-
-
 
 }

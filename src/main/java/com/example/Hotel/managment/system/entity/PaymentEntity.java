@@ -3,9 +3,7 @@ package com.example.Hotel.managment.system.entity;
 import com.example.Hotel.managment.system.enums.PaymentStatus;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
-import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Data

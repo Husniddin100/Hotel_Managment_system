@@ -23,4 +23,10 @@ public interface ProfileRepository extends CrudRepository<ProfileEntity,String> 
     Optional<ProfileEntity> findByEmailAndPassword(String email, String encode);
 
     Collection<Object> findByRole(ProfileRole profileRole);
+/*
+    @Modifying
+    @Transactional
+    @Query("update ProfileEntity set visible='false'  where id=?1")
+    void updateVisible(ProfileEntity profile);*/
+
 }

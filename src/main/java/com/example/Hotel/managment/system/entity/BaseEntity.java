@@ -15,7 +15,4 @@ public class BaseEntity {
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
 
-    @Column(name = "visible")
-    private Boolean visible=true;
-
 }

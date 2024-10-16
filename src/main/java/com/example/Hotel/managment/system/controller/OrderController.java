@@ -5,10 +5,8 @@ import com.example.Hotel.managment.system.service.OrderService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 @RequiredArgsConstructor
 @RestController
 @Slf4j
@@ -21,4 +19,8 @@ public class OrderController {
         return ResponseEntity.ok(orderService.createOrder(dto));
     }
 
+    @PostMapping("/get-byId/{id}")
+    public ResponseEntity<OrderDTO>getOrderById(@PathVariable String id){
+        return ResponseEntity.ok(orderService.getOrderById(id));
+    }
 }

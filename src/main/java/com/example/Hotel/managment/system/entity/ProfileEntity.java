@@ -4,7 +4,6 @@ import com.example.Hotel.managment.system.enums.ProfileRole;
 import com.example.Hotel.managment.system.enums.ProfileStatus;
 import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 
 import java.time.LocalDateTime;
 

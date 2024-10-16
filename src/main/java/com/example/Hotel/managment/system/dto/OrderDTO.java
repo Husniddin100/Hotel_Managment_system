@@ -11,7 +11,5 @@ public class OrderDTO {
     private String roomId;
     private LocalDateTime checkInDate;
     private LocalDateTime checkOutDate;
-    private Boolean visible;
     private Integer duration;
-
 }

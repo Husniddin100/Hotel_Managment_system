@@ -1,13 +1,13 @@
 #### create room
 POST localhost:8080/room/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3Mjg5NzMzMzcsImlzcyI6IkhvdGVsIn0.Yaog6RbKeWHM7oqOk0BwRNjcKLlQPYEeIMZa8ozhqLnb5HX3phHILS5ZQ5Ni1Wlh3FYHtwRBRweFH9_B2nqqTg
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkwMDM5NzEsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkwOTAzNzEsImlzcyI6IkhvdGVsIn0.lMlQYs8wqzvkmb4cttQUyUrJBnibW87YPw9NrvO6vlmz8K-Z_UBAyeVJ8af3TLZLLfvg_KUqzER5vreKyzhylQ"
 
 {
   "category": "COMFORT",
   "hotelId": 1,
-  "number": "1",
-  "price": 100.0
+  "number": "5",
+  "price": 150.0
 }
 
 #### get all rooms
@@ -31,3 +31,8 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiY
 ### get by id
 GET localhost:8080/room/get-byId/ae13730a-9a7b-445e-85d0-318c8a7f4e75
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3Mjg5NzMzMzcsImlzcyI6IkhvdGVsIn0.Yaog6RbKeWHM7oqOk0BwRNjcKLlQPYEeIMZa8ozhqLnb5HX3phHILS5ZQ5Ni1Wlh3FYHtwRBRweFH9_B2nqqTg
+
+### get all  pagination  by room number Desc
+GET localhost:8080/room/all
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkwMDM5NzEsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkwOTAzNzEsImlzcyI6IkhvdGVsIn0.lMlQYs8wqzvkmb4cttQUyUrJBnibW87YPw9NrvO6vlmz8K-Z_UBAyeVJ8af3TLZLLfvg_KUqzER5vreKyzhylQ"
+

@@ -4,6 +4,8 @@ import com.example.Hotel.managment.system.dto.RoomDTO;
 import com.example.Hotel.managment.system.service.RoomService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.query.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -48,4 +50,10 @@ public class RoomController {
         return ResponseEntity.ok(roomService.getById(id));
     }
 
+    @PreAuthorize("hasRole('ADMIN')")
+    @GetMapping("/all")
+    public ResponseEntity<PageImpl> getAllByPagination(@RequestParam(value = "page", defaultValue = "1") Integer page,
+                                                       @RequestParam(value = "size", defaultValue = "10") Integer size) {
+        return ResponseEntity.ok(roomService.getAllByPagination(page, size));
+    }
 }
