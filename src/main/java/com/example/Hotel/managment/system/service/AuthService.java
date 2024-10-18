@@ -1,9 +1,6 @@
 package com.example.Hotel.managment.system.service;
 
-import com.example.Hotel.managment.system.dto.AuthDTO;
-import com.example.Hotel.managment.system.dto.JwtDTO;
-import com.example.Hotel.managment.system.dto.ProfileDTO;
-import com.example.Hotel.managment.system.dto.RegistrationDTO;
+import com.example.Hotel.managment.system.dto.*;
 import com.example.Hotel.managment.system.entity.ProfileEntity;
 import com.example.Hotel.managment.system.enums.ProfileRole;
 import com.example.Hotel.managment.system.enums.ProfileStatus;
@@ -12,20 +9,21 @@ import com.example.Hotel.managment.system.repository.ProfileRepository;
 import com.example.Hotel.managment.system.util.JWTUtil;
 import com.example.Hotel.managment.system.util.MDUtil;
 import io.jsonwebtoken.JwtException;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
+
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.Optional;
 
+@RequiredArgsConstructor
 @Slf4j
 @Service
 public class AuthService {
-    @Autowired
-    private MailSenderService mailSenderService;
-    @Autowired
-    private ProfileRepository profileRepository;
+
+    private final MailSenderService mailSenderService;
+    private final ProfileRepository profileRepository;
 
     public Boolean registration(RegistrationDTO dto) {
         Optional<ProfileEntity> optional = profileRepository.findByEmail(dto.getEmail());
@@ -47,7 +45,7 @@ public class AuthService {
         profileRepository.save(entity);
         String jwt = JWTUtil.encode(entity.getEmail(), entity.getRole());
         String text = "Hello. \n To complete registration please link to the following link\n"
-                + "http://localhost:8081/auth/verification/email/" + jwt;
+                + "http://localhost:8080/auth/verification/email/" + jwt;
         mailSenderService.sendEmail(dto.getEmail(), "Complete registration", text);
         return true;
     }
@@ -94,4 +92,6 @@ public class AuthService {
         dto.setJwt(JWTUtil.encode(entity.getEmail(), entity.getRole()));
         return dto;
     }
+
+
 }

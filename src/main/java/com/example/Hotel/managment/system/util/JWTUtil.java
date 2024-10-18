@@ -6,12 +6,15 @@ import io.jsonwebtoken.*;
 
 import javax.crypto.spec.SecretKeySpec;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+
+import static javax.crypto.Cipher.SECRET_KEY;
 
 public class JWTUtil {
     private static final int tokenLiveTime = 1000 * 3600 * 24; // 1-day
     private static final int emailTokenLiveTime = 3600_000; // 1-hour
     private static final String secretKey = "1wddfewkfjjkfhkjh1jk1p2s7dksdakjshdkahsdkjahsdkahs7kjhaskjdh2skjdhadasdasg7fgdfgdfd";
-
 
     public static String encode(String email, ProfileRole role) {
         JwtBuilder jwtBuilder = Jwts.builder();

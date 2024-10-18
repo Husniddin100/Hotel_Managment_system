@@ -12,4 +12,5 @@ public class OrderDTO {
     private LocalDateTime checkInDate;
     private LocalDateTime checkOutDate;
     private Integer duration;
+
 }

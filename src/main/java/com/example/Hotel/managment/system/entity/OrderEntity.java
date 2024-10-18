@@ -10,14 +10,14 @@ import java.time.LocalDateTime;
 @Table(name = "orders")
 public class OrderEntity extends BaseEntity {
 
-    @Column(name = "profile_id")
+    @Column(name = "profile_id",nullable = false)
     private String profileId;
 
     @ManyToOne
     @JoinColumn(name = "profile_id", insertable = false, updatable = false)
     private ProfileEntity profile;
 
-    @Column(name ="room_id")
+    @Column(name ="room_id",nullable = false)
     private String roomId;
 
     @ManyToOne
@@ -27,10 +27,16 @@ public class OrderEntity extends BaseEntity {
     @Column(name = "order_date")
     private LocalDateTime orderDate;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "checkin_date")
     private LocalDateTime checkInDate;
 
+    @Temporal(TemporalType.TIMESTAMP)
     @Column(name = "checkOutDate")
     private LocalDateTime checkOutDate;
+
+    @Column(name = "duration")
+    private int duration;
+
 
 }

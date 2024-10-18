@@ -16,20 +16,7 @@ import java.time.LocalDateTime;
 public class PaymentService {
     private final PaymentRepository paymentRepository;
 
-    public PaymentDTO createPayment(PaymentDTO dto) {
-        PaymentEntity entity = new PaymentEntity();
 
-        entity.setAmount(dto.getAmount());
-        entity.setStatus(dto.getStatus());
-        entity.setPaymentDate(LocalDateTime.now());
-        entity.setOrderId(dto.getOrderId());
-
-        paymentRepository.save(entity);
-        log.info("Payment created  {}",entity.getId());
-        dto.setId(entity.getId());
-
-        return dto;
-    }
 
     public PaymentDTO getById(String id) {
         var payment = paymentRepository.findById(id).

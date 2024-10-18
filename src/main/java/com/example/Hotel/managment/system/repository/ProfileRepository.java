@@ -1,5 +1,6 @@
 package com.example.Hotel.managment.system.repository;
 
+import com.example.Hotel.managment.system.dto.ForgotPasswordRequestDTO;
 import com.example.Hotel.managment.system.entity.ProfileEntity;
 import com.example.Hotel.managment.system.enums.ProfileRole;
 import com.example.Hotel.managment.system.enums.ProfileStatus;
@@ -23,6 +24,9 @@ public interface ProfileRepository extends CrudRepository<ProfileEntity,String> 
     Optional<ProfileEntity> findByEmailAndPassword(String email, String encode);
 
     Collection<Object> findByRole(ProfileRole profileRole);
+
+    @Query("from ProfileEntity where email=?1 and role=?2")
+    ProfileEntity findByEmailAndRole(String email, String role);
 /*
     @Modifying
     @Transactional

@@ -1,0 +1,21 @@
+#### create order
+POST localhost:8080/order/create
+Content-Type: application/json
+
+{
+  "profileId": "8719e65f-fd24-434b-8172-0ff3311e69de",
+  "roomId": "fc47d61d-e4c9-4b8c-8a14-428ecb6e0473",
+  "checkInDate": "2024-10-20T14:00:00",
+  "checkOutDate": "2024-10-25T12:00:00"
+}
+
+#### get by id
+GET localhost:8080/profile/get-byId/17c2b222-c0f7-4f42-b057-24b63de9defc
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkxNjk3OTEsImVtYWlsIjoia29udGFrdDIwMDMwNTA2QGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE3MjkyNTYxOTEsImlzcyI6IkhvdGVsIn0.Q7pyF7_6KWqJlf1gAb2DsUmzL0HSspcJpVRaZorRRt0fPqq3i3vLM0UhixjtgcBh9e3KozKGieF2OC1pQ1O1Gg
+
+
+
+### update order by id
+PUT localhost:8080/order/update/17c2b222-c0f7-4f42-b057-24b63de9defc
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkxNjk3OTEsImVtYWlsIjoia29udGFrdDIwMDMwNTA2QGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE3MjkyNTYxOTEsImlzcyI6IkhvdGVsIn0.Q7pyF7_6KWqJlf1gAb2DsUmzL0HSspcJpVRaZorRRt0fPqq3i3vLM0UhixjtgcBh9e3KozKGieF2OC1pQ1O1Gg
