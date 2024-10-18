@@ -34,6 +34,9 @@ public class SpringSecurityConfig {
             "/swagger-resources/**",
             "/swagger-ui/**",
             "/v3/api-docs/**",
+            "/swagger-ui.html",
+            "/v3/api-docs/**",
+            "/swagger-ui/**",
             "/swagger-ui.html"
     };
 
@@ -57,6 +60,9 @@ public class SpringSecurityConfig {
                     .requestMatchers("auth/verification/email/").permitAll()
                     .requestMatchers("auth/login").permitAll()
                     .requestMatchers("/order/create").permitAll()
+                    .requestMatchers("/room/filter").permitAll()
+                    .requestMatchers("/room/filter/**").permitAll()
+                    .requestMatchers("room/filter").permitAll()
                     .requestMatchers("room/get-all").permitAll()
                     .anyRequest()
                     .authenticated();

@@ -10,9 +10,8 @@ Content-Type: application/json
 }
 
 #### get by id
-GET localhost:8080/profile/get-byId/17c2b222-c0f7-4f42-b057-24b63de9defc
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkxNjk3OTEsImVtYWlsIjoia29udGFrdDIwMDMwNTA2QGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX1VTRVIiLCJleHAiOjE3MjkyNTYxOTEsImlzcyI6IkhvdGVsIn0.Q7pyF7_6KWqJlf1gAb2DsUmzL0HSspcJpVRaZorRRt0fPqq3i3vLM0UhixjtgcBh9e3KozKGieF2OC1pQ1O1Gg
-
+GET localhost:8080/order/get-byId/188fe773-9f8a-4ae8-a661-f198e7558e92
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkyMzQ3NTAsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkzMjExNTAsImlzcyI6IkhvdGVsIn0.wIghTTmddOJEwTIdqgAu4OaYMGgpzSuTLQ9h_0UG3Asavu8XGSEW8COYCLgS_P2U7qwC5lUcNqDX8WFKFoQOJA
 
 
 ### update order by id

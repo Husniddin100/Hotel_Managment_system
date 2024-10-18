@@ -20,7 +20,7 @@ public class OrderController {
         return ResponseEntity.ok(orderService.createOrder(dto));
     }
     @PreAuthorize("hasAnyRole('USER','ADMIN')")
-    @PostMapping("/get-byId/{id}")
+    @GetMapping("/get-byId/{id}")
     public ResponseEntity<OrderDTO>getOrderById(@PathVariable String id){
         return ResponseEntity.ok(orderService.getOrderById(id));
     }

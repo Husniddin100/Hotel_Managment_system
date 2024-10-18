@@ -1,9 +1,12 @@
 package com.example.Hotel.managment.system.service;
 
+import com.example.Hotel.managment.system.dto.PaginationResultDTO;
 import com.example.Hotel.managment.system.dto.RoomDTO;
+import com.example.Hotel.managment.system.dto.RoomFilterDTO;
 import com.example.Hotel.managment.system.entity.RoomEntity;
 import com.example.Hotel.managment.system.enums.RoomStatus;
 import com.example.Hotel.managment.system.exp.AppBadException;
+import com.example.Hotel.managment.system.repository.RoomCustomRepository;
 import com.example.Hotel.managment.system.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,6 +22,7 @@ import java.util.List;
 @Service
 public class RoomService {
     private final RoomRepository roomRepository;
+    private final RoomCustomRepository roomCustomRepository;
 
     public RoomDTO createRoom(RoomDTO dto) {
         RoomEntity entity = new RoomEntity();
@@ -79,6 +83,16 @@ public class RoomService {
             throw new AppBadException("room not found");
         }
         return toDTO(rooms);
+    }
+    public PageImpl<RoomDTO> filter(RoomFilterDTO filter, int page, int size) {
+        PaginationResultDTO<RoomEntity> paginationResult=roomCustomRepository.filter(filter,page,size);
+
+        List<RoomDTO>dtoList=new LinkedList<>();
+        for (RoomEntity entity:paginationResult.getList()){
+            dtoList.add(toDTO(entity));
+        }
+        Pageable paging=PageRequest.of(page-1,size);
+        return new PageImpl<>(dtoList,paging,paginationResult.getTotalSize());
     }
 
     public PageImpl getAllByPagination(Integer page, Integer size) {
