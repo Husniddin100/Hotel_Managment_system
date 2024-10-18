@@ -65,7 +65,6 @@ public class RoomController {
                                                        @RequestParam(value = "size", defaultValue = "10") Integer size) {
         return ResponseEntity.ok(roomService.getAllByPagination(page, size));
     }
-    @PreAuthorize("hasRole('ADMIN')")
     @PostMapping("/filter")
     public ResponseEntity<PageImpl<RoomDTO>> filter(@RequestBody RoomFilterDTO dto,
                                                     @RequestParam(value = "page", defaultValue = "1") int page,

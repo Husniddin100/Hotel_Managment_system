@@ -7,9 +7,9 @@ import lombok.Data;
 @Data
 public class RoomFilterDTO {
     private String id;
-    private String number;
+    private Integer number;
     private RoomStatus status;
     private RoomCategory category;
-    private Boolean price;
+    private Double price;
     private Integer hotelId;
 }

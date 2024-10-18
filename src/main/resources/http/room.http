@@ -1,12 +1,12 @@
 #### create room
 POST localhost:8080/room/create
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkwMDM5NzEsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkwOTAzNzEsImlzcyI6IkhvdGVsIn0.lMlQYs8wqzvkmb4cttQUyUrJBnibW87YPw9NrvO6vlmz8K-Z_UBAyeVJ8af3TLZLLfvg_KUqzER5vreKyzhylQ"
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkyMzQ3NTAsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkzMjExNTAsImlzcyI6IkhvdGVsIn0.wIghTTmddOJEwTIdqgAu4OaYMGgpzSuTLQ9h_0UG3Asavu8XGSEW8COYCLgS_P2U7qwC5lUcNqDX8WFKFoQOJA
 
 {
   "category": "COMFORT",
   "hotelId": 1,
-  "number": "5",
+  "number": 1,
   "price": 150.0
 }
 
@@ -20,7 +20,7 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiY
 
 {
   "category": "LUX",
-  "number": "2",
+  "number": 1,
   "price": 200
 }
 
@@ -34,26 +34,17 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiY
 
 ### get all  pagination  by room number Desc
 GET localhost:8080/room/all
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkwMDM5NzEsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkwOTAzNzEsImlzcyI6IkhvdGVsIn0.lMlQYs8wqzvkmb4cttQUyUrJBnibW87YPw9NrvO6vlmz8K-Z_UBAyeVJ8af3TLZLLfvg_KUqzER5vreKyzhylQ"
-
-###  filter
-POST localhost:8080/rooms/filter?page=1&size=10
-Content-Type: application/json
 Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkyMzQ3NTAsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkzMjExNTAsImlzcyI6IkhvdGVsIn0.wIghTTmddOJEwTIdqgAu4OaYMGgpzSuTLQ9h_0UG3Asavu8XGSEW8COYCLgS_P2U7qwC5lUcNqDX8WFKFoQOJA
 
-{
-
-}
 
 
 ### filter
 POST localhost:8080/room/filter?page=1&size=10
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkyMzQ3NTAsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkzMjExNTAsImlzcyI6IkhvdGVsIn0.wIghTTmddOJEwTIdqgAu4OaYMGgpzSuTLQ9h_0UG3Asavu8XGSEW8COYCLgS_P2U7qwC5lUcNqDX8WFKFoQOJA
 
 {
   "status": "EMPTY",
   "hotelId": 1,
-  "category": "LUX"
+  "category": "COMFORT"
 }
 

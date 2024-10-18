@@ -1,8 +1,8 @@
 package com.example.Hotel.managment.system.entity;
 
+import com.example.Hotel.managment.system.entity.BaseEntity;
 import com.example.Hotel.managment.system.enums.RoomCategory;
 import com.example.Hotel.managment.system.enums.RoomStatus;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -12,7 +12,7 @@ import lombok.Data;
 public class RoomEntity extends BaseEntity {
 
     @Column(name = "number")
-    private String number;
+    private Integer number;
 
     @Enumerated(EnumType.STRING)
     private RoomCategory category;
