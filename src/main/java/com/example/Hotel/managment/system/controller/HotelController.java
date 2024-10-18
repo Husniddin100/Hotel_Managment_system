@@ -30,10 +30,6 @@ public class HotelController {
     public ResponseEntity<HotelDTO>createHotel(@RequestBody HotelDTO dto){
         return ResponseEntity.ok(hotelService.createHotel(dto));
     }
-    @GetMapping("/get-all")
-    public ResponseEntity<List<HotelDTO>> getAllHotel() {
-        return ResponseEntity.ok(hotelService.getAll());
-    }
 
     @Operation(summary = "Api update hotel",description = "for api hotel update only admin")
     @PreAuthorize("hasRole('ADMIN')")

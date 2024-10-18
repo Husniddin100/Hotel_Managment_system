@@ -58,6 +58,7 @@ public class OrderService {
         Duration duration = Duration.between(dto.getCheckInDate(), dto.getCheckOutDate());
         entity.setDuration((int) duration.toDays());
 
+
         roomRepository.updateStatus(dto.getRoomId(),RoomStatus.BUSY);
         orderRepository.save(entity);
         dto.setId(entity.getId());
@@ -89,7 +90,21 @@ public class OrderService {
         //orderRepository.save(entity);
         return toDTO(order);
     }
+    public PageImpl getAllByPagination(Integer page, Integer size) {
+        Sort sort = Sort.by(Sort.Direction.DESC, "duration");
 
+        Pageable paging = PageRequest.of(page - 1, size, sort);
+        Page<OrderEntity> roomPage = orderRepository.findAll(paging);
+
+        List<OrderEntity> entityList = roomPage.getContent();
+        Long totalElements = roomPage.getTotalElements();
+
+        List<OrderDTO> dtoList = new LinkedList<>();
+        for (OrderEntity entity : entityList) {
+            dtoList.add(toDTO(entity));
+        }
+        return new PageImpl<>(dtoList, paging, totalElements);
+    }
 
     public OrderDTO toDTO(OrderEntity entity) {
         OrderDTO dto=new OrderDTO();

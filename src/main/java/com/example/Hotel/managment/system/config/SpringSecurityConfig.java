@@ -13,6 +13,11 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+
+import java.util.List;
 
 @Configuration
 @EnableMethodSecurity(prePostEnabled = true)
@@ -32,12 +37,7 @@ public class SpringSecurityConfig {
             "/swagger-ui/**",
             "/swagger-resources",
             "/swagger-resources/**",
-            "/swagger-ui/**",
-            "/v3/api-docs/**",
-            "/swagger-ui.html",
-            "/v3/api-docs/**",
-            "/swagger-ui/**",
-            "/swagger-ui.html"
+            "/swagger-ui/**"
     };
 
 
@@ -57,13 +57,11 @@ public class SpringSecurityConfig {
                     .requestMatchers("/auth/registration").permitAll()
                     .requestMatchers("/auth/verification/email/*").permitAll()
                     .requestMatchers("/auth/verification/email/**").permitAll()
-                    .requestMatchers("auth/verification/email/").permitAll()
-                    .requestMatchers("auth/login").permitAll()
+                    .requestMatchers("/auth/verification/email/").permitAll()
+                    .requestMatchers("/auth/login").permitAll()
                     .requestMatchers("/order/create").permitAll()
                     .requestMatchers("/room/filter").permitAll()
-                    .requestMatchers("/room/filter/**").permitAll()
-                    .requestMatchers("room/filter").permitAll()
-                    .requestMatchers("room/get-all").permitAll()
+                    .requestMatchers("/room/get-all").permitAll()
                     .requestMatchers("/hotel/filter").permitAll()
                     .anyRequest()
                     .authenticated();
@@ -74,6 +72,19 @@ public class SpringSecurityConfig {
 
         return http.build();
     }
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.setAllowedOrigins(List.of("http://localhost:8080"));
+        configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
+        configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
+        configuration.setAllowCredentials(true);
+
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
+    }
+
 
     public PasswordEncoder passwordEncoder() {
         return new PasswordEncoder() {

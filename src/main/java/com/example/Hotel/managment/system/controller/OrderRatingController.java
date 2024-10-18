@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class OrderRatingController {
     private final OrderRatingService orderRatingService;
 
-    @PostMapping("/create")
+    @PostMapping("/rate")
     public ResponseEntity<OrderRatingDTO> createOrderRating(@RequestBody OrderRatingDTO orderRatingDTO) {
         return ResponseEntity.ok(orderRatingService.addRating(orderRatingDTO));
 

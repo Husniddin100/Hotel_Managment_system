@@ -12,6 +12,7 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
+import static io.swagger.v3.oas.models.security.SecurityScheme.In.HEADER;
 import static io.swagger.v3.oas.models.security.SecurityScheme.Type.HTTP;
 import static org.springframework.security.config.Elements.JWT;
 
@@ -19,14 +20,6 @@ import static org.springframework.security.config.Elements.JWT;
 @Configuration
 public class OpenAPIConfig {
 
-    private static final String BEARER = "Bearer";
-
-    private SecurityScheme createAPIKeyScheme() {
-        return new SecurityScheme()
-                .type(HTTP)
-                .bearerFormat(JWT)
-                .scheme(BEARER);
-    }
     @Bean
     public OpenAPI defineOpenApi() {
         Server server = new Server();
@@ -38,10 +31,23 @@ public class OpenAPIConfig {
         myContact.setEmail("bezkoder@gmail.com");
 
         Info information = new Info()
-                .title("Employee Management System API")
+                .title("Hotel Management System API") // nomini loyihangizga moslang
                 .version("1.0")
-                .description("This API exposes endpoints to manage employees.")
+                .description("This API exposes endpoints to manage hotel rooms.")
                 .contact(myContact);
-        return new OpenAPI().info(information).servers(List.of(server));
+
+        return new OpenAPI()
+                .info(information)
+                .servers(List.of(server))
+                .components(new Components()
+                        .addSecuritySchemes("Bearer", new SecurityScheme()
+                                .type(SecurityScheme.Type.HTTP)
+                                .scheme("bearer")
+                                .bearerFormat("JWT")
+                        )
+                )
+                .addSecurityItem(new SecurityRequirement().addList("Bearer"));
     }
+
+
 }

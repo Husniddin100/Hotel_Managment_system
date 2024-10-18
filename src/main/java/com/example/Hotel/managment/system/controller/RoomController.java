@@ -30,11 +30,6 @@ public class RoomController {
         return ResponseEntity.ok(roomService.createRoom(roomDTO));
     }
 
-    @GetMapping("/get-all")
-    public ResponseEntity<List<RoomDTO>> getAllRoom() {
-        return ResponseEntity.ok(roomService.getAll());
-    }
-
     @Operation(summary = "Api update room", description = "for api update room by id")
     @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/update/{id}")

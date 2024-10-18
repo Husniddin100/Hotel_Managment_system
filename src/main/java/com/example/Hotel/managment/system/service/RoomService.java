@@ -40,16 +40,6 @@ public class RoomService {
         return dto;
     }
 
-    public List<RoomDTO> getAll() {
-        var rooms = roomRepository.findAll();
-
-        List<RoomDTO> roomDTOS = new ArrayList<>();
-        for (RoomEntity room : rooms) {
-            roomDTOS.add(toDTO(room));
-        }
-        return roomDTOS;
-    }
-
 
     public RoomDTO updateRoom(String id, RoomDTO dto) {
         RoomEntity entity = roomRepository.findById(id)
