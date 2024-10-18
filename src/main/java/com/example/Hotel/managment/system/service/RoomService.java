@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 @RequiredArgsConstructor
 @Slf4j
@@ -25,6 +26,12 @@ public class RoomService {
     private final RoomCustomRepository roomCustomRepository;
 
     public RoomDTO createRoom(RoomDTO dto) {
+        Optional<RoomEntity> room = roomRepository.findRoomNumber(dto.getHotelId(), dto.getNumber());
+
+        if (room.isPresent()) {
+            throw new AppBadException("room already created");
+        }
+
         RoomEntity entity = new RoomEntity();
 
         entity.setCategory(dto.getCategory());
@@ -74,15 +81,16 @@ public class RoomService {
         }
         return toDTO(rooms);
     }
-    public PageImpl<RoomDTO> filter(RoomFilterDTO filter, int page, int size) {
-        PaginationResultDTO<RoomEntity> paginationResult=roomCustomRepository.filter(filter,page,size);
 
-        List<RoomDTO>dtoList=new LinkedList<>();
-        for (RoomEntity entity:paginationResult.getList()){
+    public PageImpl<RoomDTO> filter(RoomFilterDTO filter, int page, int size) {
+        PaginationResultDTO<RoomEntity> paginationResult = roomCustomRepository.filter(filter, page, size);
+
+        List<RoomDTO> dtoList = new LinkedList<>();
+        for (RoomEntity entity : paginationResult.getList()) {
             dtoList.add(toDTO(entity));
         }
-        Pageable paging=PageRequest.of(page-1,size);
-        return new PageImpl<>(dtoList,paging,paginationResult.getTotalSize());
+        Pageable paging = PageRequest.of(page - 1, size);
+        return new PageImpl<>(dtoList, paging, paginationResult.getTotalSize());
     }
 
     public PageImpl getAllByPagination(Integer page, Integer size) {

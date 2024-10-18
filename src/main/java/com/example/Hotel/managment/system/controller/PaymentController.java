@@ -15,17 +15,16 @@ import org.springframework.web.bind.annotation.*;
 public class PaymentController {
     private final PaymentService paymentService;
 
-    @PostMapping("/make")
-    public String makePayment(@RequestBody PaymentDTO paymentDTO) {
-        return null;
+    @PostMapping("/create")
+    public ResponseEntity<PaymentDTO> makePayment(@RequestBody PaymentDTO paymentDTO) {
+        return ResponseEntity.ok(paymentService.createPayment(paymentDTO));
     }
+
     @Operation(summary = "Api get payment",description = "for api get payment by id")
     @GetMapping("/get-byId")
     public ResponseEntity<PaymentDTO> getPaymentById(@RequestParam("id") String id){
         return ResponseEntity.ok(paymentService.getById(id));
 
     }
-
-
 
 }

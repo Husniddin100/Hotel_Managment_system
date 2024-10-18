@@ -1,0 +1,7 @@
+### create payment
+POST localhost:8080/payment/create
+Content-Type: application/json
+
+{
+  "amount":
+}

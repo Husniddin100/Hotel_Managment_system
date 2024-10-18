@@ -40,17 +40,6 @@ public class HotelService {
         return dto;
     }
 
-    public List<HotelDTO> getAll() {
-        var hotel = hotelRepository.findAll();
-
-        List<HotelDTO> hotelDTOS = new ArrayList<>();
-        for (HotelEntity hotel1 : hotel) {
-            hotelDTOS.add(toDTO(hotel1));
-        }
-        return hotelDTOS;
-    }
-
-
     public HotelDTO updateHotel(Integer id, HotelDTO dto) {
         HotelEntity entity = hotelRepository.findById(id)
                 .orElse(null);
