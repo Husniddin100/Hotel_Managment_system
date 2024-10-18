@@ -1,8 +1,8 @@
 package com.example.Hotel.managment.system.service;
 
-import com.example.Hotel.managment.system.dto.PaginationResultDTO;
+import com.example.Hotel.managment.system.dto.filter.PaginationResultDTO;
 import com.example.Hotel.managment.system.dto.RoomDTO;
-import com.example.Hotel.managment.system.dto.RoomFilterDTO;
+import com.example.Hotel.managment.system.dto.filter.RoomFilterDTO;
 import com.example.Hotel.managment.system.entity.RoomEntity;
 import com.example.Hotel.managment.system.enums.RoomStatus;
 import com.example.Hotel.managment.system.exp.AppBadException;

@@ -1,4 +1,4 @@
-package com.example.Hotel.managment.system.dto;
+package com.example.Hotel.managment.system.dto.filter;
 
 import com.example.Hotel.managment.system.enums.RoomCategory;
 import com.example.Hotel.managment.system.enums.RoomStatus;

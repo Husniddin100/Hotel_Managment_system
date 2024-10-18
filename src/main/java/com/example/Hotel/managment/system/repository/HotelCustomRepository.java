@@ -1,8 +1,8 @@
 package com.example.Hotel.managment.system.repository;
 
+import com.example.Hotel.managment.system.dto.filter.HotelFilterDTO;
 import com.example.Hotel.managment.system.dto.filter.PaginationResultDTO;
-import com.example.Hotel.managment.system.dto.filter.RoomFilterDTO;
-import com.example.Hotel.managment.system.entity.RoomEntity;
+import com.example.Hotel.managment.system.entity.HotelEntity;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,12 +11,13 @@ import org.springframework.stereotype.Repository;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 @Repository
-public class RoomCustomRepository {
+public class HotelCustomRepository {
     @Autowired
     private EntityManager entityManager;
 
-    public PaginationResultDTO<RoomEntity> filter(RoomFilterDTO filter, int page, int size) {
+    public PaginationResultDTO<HotelEntity> filter(HotelFilterDTO filter, int page, int size) {
         StringBuilder builder = new StringBuilder();
         Map<String, Object> params = new HashMap<>();
 
@@ -24,32 +25,24 @@ public class RoomCustomRepository {
             builder.append("AND id = :id ");
             params.put("id", filter.getId());
         }
-        if (filter.getNumber() != null) {
-            builder.append("AND number = :number ");
-            params.put("number", filter.getNumber());
+        if (filter.getName() != null) {
+            builder.append("AND name = :name ");
+            params.put("name", filter.getName());
         }
-        if (filter.getStatus() != null) {
-            builder.append("AND status = :status "); // room_status -> status
-            params.put("status", filter.getStatus());
+        if (filter.getAddress() != null) {
+            builder.append("AND address = :address ");
+            params.put("address", filter.getAddress());
         }
-        if (filter.getCategory() != null) {
-            builder.append("AND category = :category ");
-            params.put("category", filter.getCategory());
-        }
-        if (filter.getPrice() != null) {
-            builder.append("AND price = :price ");
-            params.put("price", filter.getPrice());
-        }
-        if (filter.getHotelId() != null) {
-            builder.append("AND hotelId = :hotelId "); // hotel_id -> hotelId
-            params.put("hotelId", filter.getHotelId());
+        if (filter.getDescription() != null) {
+            builder.append("AND description = :description ");
+            params.put("description", filter.getDescription());
         }
 
-        StringBuilder stringBuilder = new StringBuilder("FROM RoomEntity r WHERE 1=1 ");
+        StringBuilder stringBuilder = new StringBuilder("FROM HotelEntity h WHERE 1=1 ");
         stringBuilder.append(builder);
-        stringBuilder.append(" ORDER BY number DESC ");
+        stringBuilder.append(" ORDER BY id DESC ");
 
-        StringBuilder countBuilder = new StringBuilder("SELECT count(r) FROM RoomEntity r WHERE 1=1 ");
+        StringBuilder countBuilder = new StringBuilder("SELECT count(h) FROM HotelEntity h WHERE 1=1 ");
         countBuilder.append(builder);
 
         Query selectQuery = entityManager.createQuery(stringBuilder.toString());
@@ -62,9 +55,10 @@ public class RoomCustomRepository {
             countQuery.setParameter(param.getKey(), param.getValue());
         }
 
-        List<RoomEntity> entityList = selectQuery.getResultList();
+        List<HotelEntity> entityList = selectQuery.getResultList();
         Long totalElements = (Long) countQuery.getSingleResult();
 
         return new PaginationResultDTO<>(totalElements, entityList);
     }
+
 }

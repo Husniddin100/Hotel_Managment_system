@@ -1,6 +1,9 @@
 package com.example.Hotel.managment.system.controller;
 
 import com.example.Hotel.managment.system.dto.HotelDTO;
+import com.example.Hotel.managment.system.dto.RoomDTO;
+import com.example.Hotel.managment.system.dto.filter.HotelFilterDTO;
+import com.example.Hotel.managment.system.dto.filter.RoomFilterDTO;
 import com.example.Hotel.managment.system.service.HotelService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
@@ -57,5 +60,13 @@ public class HotelController {
     public ResponseEntity<PageImpl> getAllByPagination(@RequestParam(value = "page", defaultValue = "1") Integer page,
                                                        @RequestParam(value = "size", defaultValue = "10") Integer size) {
         return ResponseEntity.ok(hotelService.getAllByPagination(page, size));
+    }
+
+    @PostMapping("/filter")
+    public ResponseEntity<PageImpl<HotelDTO>> filter(@RequestBody HotelFilterDTO dto,
+                                                    @RequestParam(value = "page", defaultValue = "1") int page,
+                                                    @RequestParam(value = "size", defaultValue = "10") int size) {
+        PageImpl<HotelDTO> result = hotelService.filter(dto, page, size);
+        return ResponseEntity.ok(result);
     }
 }

@@ -9,7 +9,8 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "hotel")
-public class HotelEntity {
+public class HotelEntity  {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

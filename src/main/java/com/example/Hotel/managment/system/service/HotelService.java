@@ -2,9 +2,13 @@ package com.example.Hotel.managment.system.service;
 
 import com.example.Hotel.managment.system.dto.HotelDTO;
 import com.example.Hotel.managment.system.dto.RoomDTO;
+import com.example.Hotel.managment.system.dto.filter.HotelFilterDTO;
+import com.example.Hotel.managment.system.dto.filter.PaginationResultDTO;
+import com.example.Hotel.managment.system.dto.filter.RoomFilterDTO;
 import com.example.Hotel.managment.system.entity.HotelEntity;
 import com.example.Hotel.managment.system.entity.RoomEntity;
 import com.example.Hotel.managment.system.exp.AppBadException;
+import com.example.Hotel.managment.system.repository.HotelCustomRepository;
 import com.example.Hotel.managment.system.repository.HotelRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,6 +26,7 @@ import java.util.stream.Collectors;
 public class HotelService {
     private final HotelRepository hotelRepository;
     private final RoomService roomService;
+    private final HotelCustomRepository hotelCustomRepository;
 
     public HotelDTO createHotel(HotelDTO dto) {
         HotelEntity entity = new HotelEntity();
@@ -40,7 +45,7 @@ public class HotelService {
 
         List<HotelDTO> hotelDTOS = new ArrayList<>();
         for (HotelEntity hotel1 : hotel) {
-                hotelDTOS.add(toDTO(hotel1));
+            hotelDTOS.add(toDTO(hotel1));
         }
         return hotelDTOS;
     }
@@ -67,7 +72,7 @@ public class HotelService {
         }
         log.warn("delete hotel {}", id);
         hotelRepository.deleteById(id);
-         return true;
+        return true;
     }
 
     public HotelDTO getById(Integer id) {
@@ -79,6 +84,7 @@ public class HotelService {
         }
         return toDTO(rooms);
     }
+
     public PageImpl getAllByPagination(Integer page, Integer size) {
         Sort sort = Sort.by(Sort.Direction.DESC, "id");
 
@@ -93,6 +99,17 @@ public class HotelService {
             dtoList.add(toDTO(entity));
         }
         return new PageImpl<>(dtoList, paging, totalElements);
+    }
+
+    public PageImpl<HotelDTO> filter(HotelFilterDTO filter, int page, int size) {
+        PaginationResultDTO<HotelEntity> paginationResult=hotelCustomRepository.filter(filter,page,size);
+
+        List<HotelDTO>dtoList=new LinkedList<>();
+        for (HotelEntity entity:paginationResult.getList()){
+            dtoList.add(toDTO(entity));
+        }
+        Pageable paging=PageRequest.of(page-1,size);
+        return new PageImpl<>(dtoList,paging,paginationResult.getTotalSize());
     }
 
     private HotelDTO toDTO(HotelEntity entity) {
