@@ -63,6 +63,8 @@ public class SpringSecurityConfig {
                     .requestMatchers("/room/filter").permitAll()
                     .requestMatchers("/room/get-all").permitAll()
                     .requestMatchers("/hotel/filter").permitAll()
+                    .requestMatchers("/payment/create").permitAll()
+                    .requestMatchers("/payment/all").permitAll()
                     .anyRequest()
                     .authenticated();
         });

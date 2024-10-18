@@ -3,5 +3,16 @@ POST localhost:8080/payment/create
 Content-Type: application/json
 
 {
-  "amount":
+  "amount":600,
+  "orderId": "90cbae60-5568-4817-826b-e067f4be16de"
 }
+
+### get by id
+GET localhost:8080/payment/get-byId/0c4a52c2-2ce1-4433-9a42-15c8005cd19c
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkyNTYxMjgsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkzNDI1MjgsImlzcyI6IkhvdGVsIn0.C0GRVc7wOWmwcGDwIzinm6x7dcGF4RHSohmGk8F2nfpPqhlJMNe1dMG5fULRZ3Ok9tJ3uo49gbdTa1XDL5lLCA
+
+
+
+
+### get all payment by pagination
+GET localhost:8080/payment/all

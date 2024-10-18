@@ -10,8 +10,6 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkyNTYxMjgsImVtYWlsIjoiY
   "price": 150.0
 }
 
-#### get all rooms
-GET localhost:8080/room/get-all
 
 #### update room
 PUT localhost:8080/room/update/13b92aba-cef5-4c21-a35d-08401346ac05

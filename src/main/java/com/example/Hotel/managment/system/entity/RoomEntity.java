@@ -31,5 +31,4 @@ public class RoomEntity extends BaseEntity {
     @Column(name = "room_status")
     private RoomStatus status;
 
-
 }

@@ -3,8 +3,8 @@ POST localhost:8080/order/create
 Content-Type: application/json
 
 {
-  "profileId": "0ab304e8-6abf-4a33-a7d1-a4da52789598",
-  "roomId": "a8da029c-11a6-4cc9-9a20-bcfb9564edb9",
+  "profileId": "4fdf092d-3ac5-4ef1-a5c3-9a3bd71c5936",
+  "roomId": "50cc646f-36b5-4d0b-88f0-41ecb38a4241",
   "checkInDate": "2024-10-20T14:00:00",
   "checkOutDate": "2024-10-25T12:00:00"
 }

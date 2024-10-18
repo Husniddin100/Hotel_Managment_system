@@ -39,7 +39,7 @@ public class OrderService {
                 dto.getRoomId(), dto.getCheckInDate(), dto.getCheckOutDate());
 
         if (!existingOrders.isEmpty()) {
-            throw new IllegalStateException("Xona allaqachon bu vaqt uchun band.");
+            throw new IllegalStateException("The room is currently booked for this time.");
         }
 
         if (room.getStatus().equals(RoomStatus.BUSY)){
@@ -48,20 +48,24 @@ public class OrderService {
 
         OrderEntity entity=new OrderEntity();
 
+        Duration duration = Duration.between(dto.getCheckInDate(), dto.getCheckOutDate());
+        double orderPriced=(double) duration.toDays();
+
+        // Get order price and calculate duration
+        double orderPrice =room.getPrice()*orderPriced;
+
         entity.setOrderDate(LocalDateTime.now());
         entity.setProfileId(dto.getProfileId());
         entity.setCheckInDate(LocalDateTime.now());
         entity.setCheckOutDate(LocalDateTime.now());
         entity.setRoomId(dto.getRoomId());
-
-
-        Duration duration = Duration.between(dto.getCheckInDate(), dto.getCheckOutDate());
         entity.setDuration((int) duration.toDays());
-
+        entity.setOrderPrice(orderPrice);
 
         roomRepository.updateStatus(dto.getRoomId(),RoomStatus.BUSY);
         orderRepository.save(entity);
         dto.setId(entity.getId());
+        dto.setOrderPrice(entity.getOrderPrice());
         dto.setDuration(entity.getDuration());
         return  dto;
     }

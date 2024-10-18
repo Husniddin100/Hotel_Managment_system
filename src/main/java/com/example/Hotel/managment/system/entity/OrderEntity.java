@@ -38,5 +38,8 @@ public class OrderEntity extends BaseEntity {
     @Column(name = "duration")
     private int duration;
 
+    @Column(name = "order_price",nullable = false)
+    private Double orderPrice;
+
 
 }

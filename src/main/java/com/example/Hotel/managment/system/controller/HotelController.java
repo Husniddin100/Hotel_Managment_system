@@ -38,6 +38,7 @@ public class HotelController {
         log.info("update hotel: {}", dto);
         return ResponseEntity.ok(hotelService.updateHotel(id, dto));
     }
+
     @Operation(summary = "Api for delete hotel ",description = "for api delete hotel by id")
     @PreAuthorize("hasRole('ADMIN')")
     @DeleteMapping("/delete/{id}")
@@ -45,11 +46,13 @@ public class HotelController {
         log.info("delete Hotel: {}", id);
         return ResponseEntity.ok(hotelService.delete(id));
     }
+
     @Operation(summary = "api get hotel",description = "for api get hotel by id ")
     @GetMapping("/get-byId/{id}")
     public ResponseEntity<HotelDTO> getHotelById(@PathVariable Integer id) {
         return ResponseEntity.ok(hotelService.getById(id));
     }
+
     @Operation(summary = "Api get all",description = "for api all hotel list by pagination")
     @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/all")
