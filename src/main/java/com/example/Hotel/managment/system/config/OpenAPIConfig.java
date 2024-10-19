@@ -12,14 +12,10 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.List;
 
-import static io.swagger.v3.oas.models.security.SecurityScheme.In.HEADER;
-import static io.swagger.v3.oas.models.security.SecurityScheme.Type.HTTP;
-import static org.springframework.security.config.Elements.JWT;
 
 
 @Configuration
 public class OpenAPIConfig {
-
     @Bean
     public OpenAPI defineOpenApi() {
         Server server = new Server();
@@ -27,11 +23,11 @@ public class OpenAPIConfig {
         server.setDescription("Development");
 
         Contact myContact = new Contact();
-        myContact.setName("Jane Doe");
+        myContact.setName("Husniddin");
         myContact.setEmail("bezkoder@gmail.com");
 
         Info information = new Info()
-                .title("Hotel Management System API") // nomini loyihangizga moslang
+                .title("Hotel Management System")
                 .version("1.0")
                 .description("This API exposes endpoints to manage hotel rooms.")
                 .contact(myContact);
@@ -48,6 +44,4 @@ public class OpenAPIConfig {
                 )
                 .addSecurityItem(new SecurityRequirement().addList("Bearer"));
     }
-
-
 }

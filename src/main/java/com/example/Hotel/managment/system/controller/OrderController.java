@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class OrderController {
     private final OrderService orderService;
 
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<OrderDTO>createOrder(@RequestBody OrderDTO dto){
         return ResponseEntity.ok(orderService.createOrder(dto));

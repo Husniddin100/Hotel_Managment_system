@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class PaymentController {
     private final PaymentService paymentService;
 
+    @Operation(summary = "Api for Make payment",description ="This api can be used to make payments")
     @PostMapping("/create")
     public ResponseEntity<PaymentDTO> makePayment(@RequestBody PaymentDTO paymentDTO) {
         return ResponseEntity.ok(paymentService.createPayment(paymentDTO));

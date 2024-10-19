@@ -29,12 +29,6 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3Mjg4ODY5MzcsImVtYWlsIjoiY
   "description": "There are lux comfort rooms and 5-star rooms"
 }
 
-
-### get all  pagination  by id  Desc
-GET localhost:8080/hotel/all
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MjkyMzQ3NTAsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MjkzMjExNTAsImlzcyI6IkhvdGVsIn0.wIghTTmddOJEwTIdqgAu4OaYMGgpzSuTLQ9h_0UG3Asavu8XGSEW8COYCLgS_P2U7qwC5lUcNqDX8WFKFoQOJA
-
-
 ### filter
 POST localhost:8080/hotel/filter?page=1&size=10
 Content-Type: application/json

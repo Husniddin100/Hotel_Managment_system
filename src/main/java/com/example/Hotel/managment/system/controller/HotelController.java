@@ -53,14 +53,7 @@ public class HotelController {
         return ResponseEntity.ok(hotelService.getById(id));
     }
 
-    @Operation(summary = "Api get all",description = "for api all hotel list by pagination")
-    @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/all")
-    public ResponseEntity<PageImpl> getAllByPagination(@RequestParam(value = "page", defaultValue = "1") Integer page,
-                                                       @RequestParam(value = "size", defaultValue = "10") Integer size) {
-        return ResponseEntity.ok(hotelService.getAllByPagination(page, size));
-    }
-
+    @Operation(summary = "APi for filter",description = "this api will filter the hotel data in the order you requested")
     @PostMapping("/filter")
     public ResponseEntity<PageImpl<HotelDTO>> filter(@RequestBody HotelFilterDTO dto,
                                                     @RequestParam(value = "page", defaultValue = "1") int page,

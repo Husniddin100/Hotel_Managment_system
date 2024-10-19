@@ -93,21 +93,6 @@ public class RoomService {
         return new PageImpl<>(dtoList, paging, paginationResult.getTotalSize());
     }
 
-    public PageImpl getAllByPagination(Integer page, Integer size) {
-        Sort sort = Sort.by(Sort.Direction.DESC, "number");
-
-        Pageable paging = PageRequest.of(page - 1, size, sort);
-        Page<RoomEntity> roomPage = roomRepository.findAll(paging);
-
-        List<RoomEntity> entityList = roomPage.getContent();
-        Long totalElements = roomPage.getTotalElements();
-
-        List<RoomDTO> dtoList = new LinkedList<>();
-        for (RoomEntity entity : entityList) {
-            dtoList.add(toDTO(entity));
-        }
-        return new PageImpl<>(dtoList, paging, totalElements);
-    }
 
     public RoomDTO toDTO(RoomEntity entity) {
         RoomDTO dto = new RoomDTO();

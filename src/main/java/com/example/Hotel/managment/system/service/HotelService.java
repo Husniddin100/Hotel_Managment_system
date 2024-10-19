@@ -4,9 +4,7 @@ import com.example.Hotel.managment.system.dto.HotelDTO;
 import com.example.Hotel.managment.system.dto.RoomDTO;
 import com.example.Hotel.managment.system.dto.filter.HotelFilterDTO;
 import com.example.Hotel.managment.system.dto.filter.PaginationResultDTO;
-import com.example.Hotel.managment.system.dto.filter.RoomFilterDTO;
 import com.example.Hotel.managment.system.entity.HotelEntity;
-import com.example.Hotel.managment.system.entity.RoomEntity;
 import com.example.Hotel.managment.system.exp.AppBadException;
 import com.example.Hotel.managment.system.repository.HotelCustomRepository;
 import com.example.Hotel.managment.system.repository.HotelRepository;
@@ -15,7 +13,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.*;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -74,21 +71,6 @@ public class HotelService {
         return toDTO(rooms);
     }
 
-    public PageImpl getAllByPagination(Integer page, Integer size) {
-        Sort sort = Sort.by(Sort.Direction.DESC, "id");
-
-        Pageable paging = PageRequest.of(page - 1, size, sort);
-        Page<HotelEntity> roomPage = hotelRepository.findAll(paging);
-
-        List<HotelEntity> entityList = roomPage.getContent();
-        Long totalElements = roomPage.getTotalElements();
-
-        List<HotelDTO> dtoList = new LinkedList<>();
-        for (HotelEntity entity : entityList) {
-            dtoList.add(toDTO(entity));
-        }
-        return new PageImpl<>(dtoList, paging, totalElements);
-    }
 
     public PageImpl<HotelDTO> filter(HotelFilterDTO filter, int page, int size) {
         PaginationResultDTO<HotelEntity> paginationResult=hotelCustomRepository.filter(filter,page,size);

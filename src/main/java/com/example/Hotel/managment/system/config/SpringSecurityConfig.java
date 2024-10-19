@@ -36,10 +36,8 @@ public class SpringSecurityConfig {
             "/v3/api-docs/**",
             "/swagger-ui/**",
             "/swagger-resources",
-            "/swagger-resources/**",
-            "/swagger-ui/**"
+            "/swagger-resources/**"
     };
-
 
     @Bean
     public AuthenticationProvider authenticationProvider() {
@@ -64,10 +62,12 @@ public class SpringSecurityConfig {
                     .requestMatchers("/room/get-all").permitAll()
                     .requestMatchers("/hotel/filter").permitAll()
                     .requestMatchers("/payment/create").permitAll()
+                    .requestMatchers("/swagger-ui/index.html").permitAll()
                     .requestMatchers("/payment/all").permitAll()
                     .anyRequest()
                     .authenticated();
         });
+
         http.addFilterBefore(jwtTokenFilter, UsernamePasswordAuthenticationFilter.class);
         http.csrf(AbstractHttpConfigurer::disable);
         http.cors(AbstractHttpConfigurer::disable);
@@ -77,7 +77,7 @@ public class SpringSecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:8080"));
+        configuration.setAllowedOrigins(List.of("http://localhost:8080"));  // To'g'ri manzil
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("Authorization", "Content-Type"));
         configuration.setAllowCredentials(true);

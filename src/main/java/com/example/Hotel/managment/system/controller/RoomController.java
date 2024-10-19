@@ -52,13 +52,7 @@ public class RoomController {
         return ResponseEntity.ok(roomService.getById(id));
     }
 
-    @Operation(summary = "Api get all room", description = "for api get all room by pagination sorted room_number")
-    @PreAuthorize("hasRole('ADMIN')")
-    @GetMapping("/all")
-    public ResponseEntity<PageImpl> getAllByPagination(@RequestParam(value = "page", defaultValue = "1") Integer page,
-                                                       @RequestParam(value = "size", defaultValue = "10") Integer size) {
-        return ResponseEntity.ok(roomService.getAllByPagination(page, size));
-    }
+    @Operation(summary = "APi for filter",description = "this api will filter the room data in the order you requested")
     @PostMapping("/filter")
     public ResponseEntity<PageImpl<RoomDTO>> filter(@RequestBody RoomFilterDTO dto,
                                                     @RequestParam(value = "page", defaultValue = "1") int page,

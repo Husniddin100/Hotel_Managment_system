@@ -1,19 +1,14 @@
 package com.example.Hotel.managment.system.service;
 
 import com.example.Hotel.managment.system.dto.OrderDTO;
-import com.example.Hotel.managment.system.dto.RoomDTO;
 import com.example.Hotel.managment.system.entity.OrderEntity;
-import com.example.Hotel.managment.system.entity.RoomEntity;
 import com.example.Hotel.managment.system.enums.RoomStatus;
 import com.example.Hotel.managment.system.exp.AppBadException;
 import com.example.Hotel.managment.system.repository.OrderRepository;
 import com.example.Hotel.managment.system.repository.RoomRepository;
-import com.example.Hotel.managment.system.util.SpringSecurityUtil;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.tomcat.util.net.openssl.ciphers.Authentication;
 import org.springframework.data.domain.*;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
@@ -26,11 +21,10 @@ import java.util.List;
 @Service
 public class OrderService {
     public final OrderRepository orderRepository;
-    public final RoomRepository repository;
     private final RoomRepository roomRepository;
 
     public OrderDTO createOrder(OrderDTO dto) {
-        var room =repository.findById(dto.getRoomId()).orElse(null);
+        var room =roomRepository.findById(dto.getRoomId()).orElse(null);
         if (room == null) {
             throw new AppBadException("room not found");
         }

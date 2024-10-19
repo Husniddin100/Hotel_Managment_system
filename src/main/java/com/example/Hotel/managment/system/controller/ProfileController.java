@@ -22,12 +22,16 @@ public class ProfileController {
         log.info("getById {} ",id);
         return ResponseEntity.ok(profileService.getById(id));
     }
-    @Operation(summary = "Api ")
+
+
+    @Operation(summary = "Api for delete profile",description = "this api is used to launch the profile ")
     @DeleteMapping("delete/{id}")
     public ResponseEntity<Boolean> delete(@PathVariable("id") String id) {
         log.info("delete profile {} ",id);
         return ResponseEntity.ok(profileService.deleteProfile(id));
     }
+
+    @Operation(summary = "Api update profile ",description = "this api is used to update the profile")
     @PostMapping("/update/{id}")
     public ResponseEntity<ProfileDTO> update(@PathVariable("id") String id,
                                              @RequestBody ProfileDTO profileDTO) {
