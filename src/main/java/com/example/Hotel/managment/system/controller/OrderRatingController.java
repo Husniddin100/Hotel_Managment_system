@@ -3,6 +3,7 @@ package com.example.Hotel.managment.system.controller;
 import com.example.Hotel.managment.system.dto.OrderRatingDTO;
 import com.example.Hotel.managment.system.service.OrderRatingService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RequiredArgsConstructor
 @RestController
+@Tag(name = "Api list for rating",description = "this api is used to rate orders")
 @RequestMapping("/rating")
 public class OrderRatingController {
     private final OrderRatingService orderRatingService;

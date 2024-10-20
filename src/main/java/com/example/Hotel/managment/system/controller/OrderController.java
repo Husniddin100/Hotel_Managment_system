@@ -3,6 +3,7 @@ package com.example.Hotel.managment.system.controller;
 import com.example.Hotel.managment.system.dto.OrderDTO;
 import com.example.Hotel.managment.system.service.OrderService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageImpl;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RequiredArgsConstructor
 @RestController
+@Tag(name = "Api list for order",description = "these apis are useful for CRUD orders ")
 @Slf4j
 @RequestMapping("/order")
 public class OrderController {

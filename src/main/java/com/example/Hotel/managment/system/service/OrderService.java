@@ -43,10 +43,10 @@ public class OrderService {
         OrderEntity entity=new OrderEntity();
 
         Duration duration = Duration.between(dto.getCheckInDate(), dto.getCheckOutDate());
-        double orderPriced=(double) duration.toDays();
+        double orderDuration=(double) duration.toDays();
 
         // Get order price and calculate duration
-        double orderPrice =room.getPrice()*orderPriced;
+        double orderPrice =room.getPrice()*orderDuration;
 
         entity.setOrderDate(LocalDateTime.now());
         entity.setProfileId(dto.getProfileId());
@@ -85,7 +85,8 @@ public class OrderService {
         entity.setRoomId(dto.getRoomId());
         entity.setCheckInDate(dto.getCheckInDate());
         entity.setCheckOutDate(dto.getCheckOutDate());
-        //orderRepository.save(entity);
+
+        orderRepository.save(entity);
         return toDTO(order);
     }
     public PageImpl getAllByPagination(Integer page, Integer size) {

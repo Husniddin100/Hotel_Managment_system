@@ -3,16 +3,17 @@ package com.example.Hotel.managment.system.controller;
 import com.example.Hotel.managment.system.dto.PaymentDTO;
 import com.example.Hotel.managment.system.service.PaymentService;
 import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RequiredArgsConstructor
 @RestController
+@Tag(name = "Api list for payment",description = "this api is used to rate orders")
 @RequestMapping("/payment")
 public class PaymentController {
     private final PaymentService paymentService;

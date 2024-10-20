@@ -47,11 +47,13 @@ public class RoomController {
     }
 
     @Operation(summary = "Api get room", description = "for api get room by id")
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @GetMapping("/get-byId/{id}")
     public ResponseEntity<RoomDTO> getRoomById(@PathVariable String id) {
         return ResponseEntity.ok(roomService.getById(id));
     }
 
+    @PreAuthorize("hasAnyRole('USER','ADMIN')")
     @Operation(summary = "APi for filter",description = "this api will filter the room data in the order you requested")
     @PostMapping("/filter")
     public ResponseEntity<PageImpl<RoomDTO>> filter(@RequestBody RoomFilterDTO dto,
