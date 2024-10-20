@@ -1,8 +1,10 @@
 package com.example.Hotel.managment.system.service;
 
+import com.example.Hotel.managment.system.dto.OrderDTO;
 import com.example.Hotel.managment.system.dto.filter.PaginationResultDTO;
 import com.example.Hotel.managment.system.dto.RoomDTO;
 import com.example.Hotel.managment.system.dto.filter.RoomFilterDTO;
+import com.example.Hotel.managment.system.entity.OrderEntity;
 import com.example.Hotel.managment.system.entity.RoomEntity;
 import com.example.Hotel.managment.system.enums.RoomStatus;
 import com.example.Hotel.managment.system.exp.AppBadException;
@@ -80,6 +82,22 @@ public class RoomService {
             throw new AppBadException("room not found");
         }
         return toDTO(rooms);
+    }
+
+    public PageImpl getAllByPagination(Integer page, Integer size) {
+        Sort sort = Sort.by(Sort.Direction.DESC, "number");
+
+        Pageable paging = PageRequest.of(page - 1, size, sort);
+        Page<RoomEntity> roomPage = roomRepository.findAll(paging);
+
+        List<RoomEntity> entityList = roomPage.getContent();
+        Long totalElements = roomPage.getTotalElements();
+
+        List<RoomDTO> dtoList = new LinkedList<>();
+        for (RoomEntity entity : entityList) {
+            dtoList.add(toDTO(entity));
+        }
+        return new PageImpl<>(dtoList, paging, totalElements);
     }
 
     public PageImpl<RoomDTO> filter(RoomFilterDTO filter, int page, int size) {
