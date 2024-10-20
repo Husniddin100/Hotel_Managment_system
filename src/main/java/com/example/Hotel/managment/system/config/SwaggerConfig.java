@@ -26,7 +26,7 @@ public class SwaggerConfig {
                         addList("Bearer Authentication"))
                 .components(new Components().addSecuritySchemes
                         ("Bearer Authentication", createAPIKeyScheme()))
-                .info(new Info().title("Calendar control SERVICE")
+                .info(new Info().title("Hotel Management system")
                         .description("Hotel Management API with all endpoints and permissions")
                         .version("0.0.1"));
     }
