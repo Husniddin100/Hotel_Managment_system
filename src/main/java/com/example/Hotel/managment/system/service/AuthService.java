@@ -64,7 +64,7 @@ public class AuthService {
         } catch (JwtException e) {
             throw new AppBadException("please.tyre.again");
         }
-        return null;
+        return "Registration completed successfully!";
     }
 
     public ProfileDTO login(AuthDTO profile) {

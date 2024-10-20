@@ -27,7 +27,7 @@ public class SwaggerConfig {
                 .components(new Components().addSecuritySchemes
                         ("Bearer Authentication", createAPIKeyScheme()))
                 .info(new Info().title("Calendar control SERVICE")
-                        .description("REST APIS FOR MANAGE Calendar control SERVICE")
+                        .description("Hotel Management API with all endpoints and permissions")
                         .version("0.0.1"));
     }
 }
